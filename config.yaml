@@ -1,4 +1,4 @@
-baseURL: https://example.com/
+baseURL: https://rnaseqanalysis.netlify.app/
 title: Hugo Book
 theme: hugo-book
 disablePathToLower: yes
