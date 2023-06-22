@@ -1,5 +1,5 @@
 baseURL: https://rnaseqanalysis.netlify.app/
-title: Hugo Book
+title: Contents
 theme: hugo-book
 disablePathToLower: yes
 enableGitInfo: yes
@@ -14,31 +14,27 @@ languages:
     contentDir: content.en
     languageName: English
     weight: 1
-  ru:
-    contentDir: content.ru
-    languageName: Russian
-    weight: 2
-  zh:
-    contentDir: content.zh
-    languageName: Chinese
-    weight: 3
 menu:
   after:
     - name: Github
-      url: https://github.com/alex-shpak/hugo-book
+      url: https://github.com/mb-bioinfo-analyst
       weight: 10
-    - name: Hugo Themes
-      url: https://themes.gohugo.io/hugo-book/
+    - name: Resume
+      url: https://mb-bioinfo-analyst.github.io/Portfolio/
+      weight: 20
+    - name: Portfolio
+      url: https://sites.google.com/view/bilalmustafa/home
       weight: 20
 params:
   BookComments: yes
   BookDateFormat: January 2, 2006
   BookEditPath: edit/main/exampleSite
   BookPortableLinks: yes
-  BookRepo: https://github.com/alex-shpak/hugo-book
+  BookRepo: https://github.com/mb-bioinfo-analyst/RNAseq_Analysis
   BookSearch: yes
   BookSection: docs
   BookServiceWorker: yes
-  BookTheme: light
+  BookTheme: auto
   BookToC: yes
   BookTranslatedOnly: no
+  BookLogo: '/static/logo.png'

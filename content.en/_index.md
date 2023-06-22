@@ -1,10 +1,7 @@
 ---
-title: Introduction
+title: "RNA-Seq Analysis Workflow"
 type: docs
 ---
-
-#RNA-Seq Analysis Workflow
-
 
 ## Prepare Data
 
@@ -27,7 +24,7 @@ Mapping reads to the genome is a very important task, and many different aligner
 
 First, let's load the Rsubread package into R.
 
-```{r}
+```r
 
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -40,7 +37,7 @@ library(Rsubread)
 Make sure that all of the sequencing read data (.fastq.gz files) ar placed in in the data directory. `list.files` command can be used to search for all .fastq.gz files in the data directory.
 In the code below `$` symbol represents the end of the string, so that we will get the files that end in ".fastq.gz" in their names.
 
-```{r}
+```r
 
 fastq.files <- list.files(path = "./data", pattern = ".fastq.gz$", full.names = TRUE)
 # fastq.files
@@ -53,7 +50,7 @@ fastq.files <- list.files(path = "./data", pattern = ".fastq.gz$", full.names = 
 
 Before performing alignment, an index of the reference genome is to be build. To build an index you need need the fasta file (.fa), which can be downloaded from the links given above. For the reasons mentioned earlier, here I am building the index only for chromosome 1. It usually takes around 30 minutes to 1 hour for the whole mouse genome index if run on a dedicated server. The command below builds the index of the chr1 genome for mm10 using the "chr1.fa" file.
 
-```{r,eval=FALSE}
+```r
 
 buildindex(basename="chr1_mm10",reference="chr1.fa")
 
@@ -61,7 +58,7 @@ buildindex(basename="chr1_mm10",reference="chr1.fa")
 
 Once the index is generated, you can see the additional files generated in the same directory. 
 
-```{r,results="hide"}
+```r
 
 dir()
 
@@ -76,7 +73,7 @@ Now we can align our reads using the `align` command. We can tweak with the para
 we can align our 12 fastq.gz files using the `align` command.
 
 
-```{r,eval=FALSE}
+```r
 
 align(index="data/chr1_mm10",readfile1=fastq.files)
 
@@ -86,7 +83,7 @@ The 12 samples will be aligned to the reference genome one after the other and T
 
 The default setting for `align` allows us to only keeps reads that uniquely map to the reference genome. **Differential expression of genes, this is important**, because the reads are assigned only to one place in the genome, which is easier to interpret. But if the circumstances are that your data needs different parameteric settings, you can get more information from looking at the align documentation.
 
-```{r, eval=FALSE}
+```r
 
 ?align
 
@@ -94,7 +91,7 @@ The default setting for `align` allows us to only keeps reads that uniquely map 
 
 To get a summary of the proportion of reads that are mapped to the reference genome, `propmapped` function can be used.
 
-```{r}
+```r
 
 # enlist the bam files
 bam.files <- list.files(path = "./data", pattern = ".BAM$", full.names = TRUE)
@@ -111,7 +108,7 @@ props
 
 Let's extract quality scores for the file "SRR1552450.fastq.gz" using 100 reads. A quality score of 30 corresponds to a 1 in 1000 chance of an incorrect base call. (A quality score of 10 is a 1 in 10 chance of an incorrect base call.) The overall distribution of quality scores can be seen using a boxplot.
 
-```{r}
+```r
 
 # Extract quality scores
 qs <- qualityScores(filename="data/SRR1552450.fastq.gz",nreads=100)
@@ -131,7 +128,7 @@ The alignment step provides us with a set of BAM files, where every file contain
 
 Number of reads that are map to exons of genes are summed to obtain the count for each gene. `featureCounts` takes a list of BAM files as input, and returns an object that includes the count matrix. This matrix is made up of samples in columns and genes in rows.
 
-```{r, eval=FALSE}
+```r
 
 fc <- featureCounts(bam.files, annot.inbuilt="mm10")
 
@@ -139,7 +136,7 @@ fc <- featureCounts(bam.files, annot.inbuilt="mm10")
 
 fc$stats reports the numbers and reasons of unassigned reads (eg. ambiguity, multi-mapping, secondary alignment, mapping quality, fragment length, chimera, read duplicate, non-junction and so on), along with the number of successful assignment of reads for each library. See [subread documentation](http://bioconductor.org/packages/release/bioc/html/Rsubread.html)
 
-```{r}
+```r
 
 ## Take a look at the featurecounts stats
 fc$stat
@@ -148,7 +145,7 @@ fc$stat
 
 The counts for the samples are stored in fc$counts. Take a look at that.
 
-```{r}
+```r
 
 ## Take a look at the dimensions to see the number of genes
 dim(fc$counts)
@@ -159,7 +156,7 @@ dim(fc$counts)
 
 Here, row names of the matrix represent the Entrez gene ids and the column names are the samples. The `annotation` slot shows the annotation information that `featureCounts` used to summarize reads over genes.
 
-```{r}
+```r
 
 head(fc$annotation)
 
