@@ -1,0 +1,44 @@
+baseURL: https://example.com/
+title: Hugo Book
+theme: hugo-book
+disablePathToLower: yes
+enableGitInfo: yes
+markup:
+  goldmark:
+    renderer:
+      unsafe: yes
+  tableOfContents:
+    startLevel: 1
+languages:
+  en:
+    contentDir: content.en
+    languageName: English
+    weight: 1
+  ru:
+    contentDir: content.ru
+    languageName: Russian
+    weight: 2
+  zh:
+    contentDir: content.zh
+    languageName: Chinese
+    weight: 3
+menu:
+  after:
+    - name: Github
+      url: https://github.com/alex-shpak/hugo-book
+      weight: 10
+    - name: Hugo Themes
+      url: https://themes.gohugo.io/hugo-book/
+      weight: 20
+params:
+  BookComments: yes
+  BookDateFormat: January 2, 2006
+  BookEditPath: edit/main/exampleSite
+  BookPortableLinks: yes
+  BookRepo: https://github.com/alex-shpak/hugo-book
+  BookSearch: yes
+  BookSection: docs
+  BookServiceWorker: yes
+  BookTheme: light
+  BookToC: yes
+  BookTranslatedOnly: no
