@@ -1,5 +1,5 @@
 ---
-title: "RNA-Seq Analysis Workflow"
+title: RNA-Seq Analysis Workflow
 type: docs
 ---
 
