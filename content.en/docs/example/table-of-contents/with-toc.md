@@ -1,6 +1,7 @@
 ---
 title: With ToC
 weight: 1
+bookHidden: true
 ---
 # Caput vino delphine in tamen vias
 

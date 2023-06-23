@@ -1,8 +1,15 @@
 ---
 title: RNA-Seq Analysis Workflow
 type: docs
+date: June 22, 2023
 ---
 
+
+# RNA-Seq Analysis Workflow
+**Author: Bilal Mustafa PhD**
+
+**Date: June 22, 2023**
+***
 ## Prepare Data
 
 ### Download read data
@@ -15,8 +22,7 @@ The raw reads downloaded from SRA are in .sra format. The sra toolkit from NCBI 
 
 ### Downloading genome files
 
-For this analysis, the index files for chromosome 1 of mouse genome build mm10 is provided in the data files from [figshare](https://figshare.com/s/f5d63d8c265a05618137). However, you can obtain full genome fasta files for various genomes from the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu) or [here](https://hgdownload.soe.ucsc.edu/downloads.html); or from [NCBI](https://www.ncbi.nlm.nih.gov/genome); or from [ENSEMBL]
-(https://www.ensembl.org/info/data/ftp/index.html).
+For this analysis, the index files for chromosome 1 of mouse genome build mm10 is provided in the data files from [figshare](https://figshare.com/s/f5d63d8c265a05618137). However, you can obtain full genome fasta files for various genomes from the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu) or [here](https://hgdownload.soe.ucsc.edu/downloads.html); or from [NCBI](https://www.ncbi.nlm.nih.gov/genome); or from [ENSEMBL](https://www.ensembl.org/info/data/ftp/index.html).
 
 ### Import Data for Alignment
 
