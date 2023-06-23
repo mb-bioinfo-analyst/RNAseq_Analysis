@@ -35,3 +35,4 @@ params:
   BookToC: yes
   BookTranslatedOnly: no
   BookLogo: '/static/logo.png'
+  BookSearch: false
