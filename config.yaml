@@ -16,15 +16,9 @@ languages:
     weight: 1
 menu:
   after:
-    - name: Github
-      url: https://github.com/mb-bioinfo-analyst
+    - name: Blog
+      url: https://bioinfoguidebook.netlify.app/
       weight: 10
-    - name: Resume
-      url: https://mb-bioinfo-analyst.github.io/Portfolio/
-      weight: 20
-    - name: Portfolio
-      url: https://sites.google.com/view/bilalmustafa/home
-      weight: 20
 params:
   BookComments: yes
   BookDateFormat: January 2, 2006
