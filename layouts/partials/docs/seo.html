@@ -1,0 +1,34 @@
+{{/* Title */}}
+<title>
+  {{- if .Title -}}
+    {{ .Title }} | RNA-Seq Analysis Guide
+  {{- else -}}
+    RNA-Seq Analysis Guide
+  {{- end -}}
+</title>
+
+{{/* Meta description: prefer page.description, fallback to site.Params.description */}}
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+
+{{/* Open Graph tags */}}
+<meta property="og:title" content="{{ if .Title }}{{ .Title }} | RNA-Seq Analysis Guide{{ else }}RNA-Seq Analysis Guide{{ end }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+{{ with site.Params.seo.image }}
+<meta property="og:image" content="{{ site.BaseURL }}{{ . }}">
+{{ end }}
+
+{{/* Twitter card */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }} | RNA-Seq Analysis Guide{{ else }}RNA-Seq Analysis Guide{{ end }}">
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+
+{{ with site.Params.seo.image }}
+<meta name="twitter:image" content="{{ site.BaseURL }}{{ . }}">
+{{ end }}
+
+{{ with site.Params.seo.twitterUser }}
+<meta name="twitter:creator" content="{{ . }}">
+{{ end }}

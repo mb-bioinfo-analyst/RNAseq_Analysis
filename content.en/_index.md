@@ -3,18 +3,18 @@ title: "RNA-Seq Analysis Workflow"
 description: "High-level overview of RNA-seq experiments, typical workflows, and main analysis steps."
 type: docs
 date: "June 22, 2023"
-output: pdf_document
+
 ---
 
 
-# RNA-Seq Analysis: A Beginner's Guide to Understanding Gene Expression Using R
+## RNA-Seq Analysis: A Beginner's Guide to Understanding Gene Expression Using R
 **Author: Bilal Mustafa PhD**
 
 **Date: June 22, 2023**
 
 ***  
 
-![](https://upload.wikimedia.org/wikipedia/commons/6/68/MIcroarray_vs_RNA-Seq.png)
+![Microarray vs RNA-seq overview](https://upload.wikimedia.org/wikipedia/commons/6/68/MIcroarray_vs_RNA-Seq.png)
 
 
 
