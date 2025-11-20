@@ -1,5 +1,6 @@
 ---
 title: "RNA-Seq Analysis Workflow"
+description: "High-level overview of RNA-seq experiments, typical workflows, and main analysis steps."
 type: docs
 date: "June 22, 2023"
 output: pdf_document

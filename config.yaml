@@ -1,25 +1,42 @@
-baseURL: https://rnaseqanalysis.netlify.app/
-title: Home
+baseURL: "https://rnaseqanalysis.netlify.app/"
+title: "RNA-seq Analysis Guide"
 theme: hugo-book
+
+# URL + robots behavior
 disablePathToLower: yes
 enableGitInfo: yes
+canonifyURLs: true        # make all URLs absolute & consistent
+enableRobotsTXT: true     # auto-generate /robots.txt
+
+# Optional: how many items per list page (if you ever use lists/blog)
+paginate: 20
+
 markup:
   goldmark:
     renderer:
       unsafe: yes
   tableOfContents:
     startLevel: 1
+
+languageCode: "en"
+defaultContentLanguage: "en"
+
 languages:
   en:
     contentDir: content.en
     languageName: English
     weight: 1
+
 menu:
   after:
     - name: Blog
       url: https://bioinfoguidebook.netlify.app/
       weight: 10
+
+taxonomies: {}
+
 params:
+  # Existing Book theme params
   BookComments: yes
   BookDateFormat: January 2, 2006
   BookPortableLinks: yes
@@ -28,5 +45,19 @@ params:
   BookTheme: auto
   BookToC: yes
   BookTranslatedOnly: no
-  BookLogo: '/static/logo.png'
+
+  # IMPORTANT: for Hugo Book, logo should be relative to /static
+  # So put logo.png in static/logo.png and use this: (did not work so not using relative)
+  BookLogo: "/static/logo.png"
+
+  # Search: set to true if you want built-in search
   BookSearch: false
+
+  # New: general site-level SEO info
+  description: "Step-by-step RNA-seq analysis workflow covering QC, alignment, quantification, differential expression, and functional analysis."
+  author: "Bilal Mustafa"
+
+  # New: SEO-specific params that we can use in templates
+  seo:
+    image: "images/cover.png"   # put cover.png at static/images/cover.png
+    twitterUser: "@bmustafa122" # or leave empty if you prefer

@@ -1,0 +1,5 @@
+# Allow All
+User-agent: *
+Allow: /
+
+Sitemap: https://rnaseqanalysis.netlify.app/sitemap.xml
